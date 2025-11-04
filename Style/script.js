@@ -90,10 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNavToggle.addEventListener('click', openSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
         sidebarClose.addEventListener('click', closeSidebar);
-        
-        // NO MORE CLONING CODE. It has been removed.
 
-        // This code now finds the dedicated HTML menu we added to the sidebar.
         const sidebarDropdowns = sidebar.querySelectorAll('.has-dropdown > a, .has-submenu > a');
         sidebarDropdowns.forEach(link => {
             link.addEventListener('click', (event) => {
@@ -136,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Listen for the 'scroll' event on the entire window
         window.addEventListener('scroll', () => {
             // Check if the user has scrolled more than 50 pixels down
-            if (window.scrollY > 50) {
+            if (window.scrollY >= 120) {
                 // If yes, add the 'scrolled' class to the header
                 header.classList.add('scrolled');
             } else {

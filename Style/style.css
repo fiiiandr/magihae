@@ -221,7 +221,8 @@ details.closing .faq-content p {
 
 .main-header {
     background-color: transparent; /* Start transparent */
-    padding: 4rem 0;
+    margin: 2rem 0;
+    padding: 0.6rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -238,7 +239,7 @@ details.closing .faq-content p {
 /* Scrolled State */
 .main-header.scrolled {
     background-color: var(--light-text-color);
-    padding: 0.5rem 0;
+    padding: 0.6rem 0;
     box-shadow: var(--shadow);
 }
 
@@ -404,7 +405,7 @@ details.closing .faq-content p {
     width: 280px;
     background-color: white;
     z-index: 1004;
-    padding: 60px 20px 20px;
+    padding: 60px 0px 20px;
     transform: translateX(-100%);
     transition: transform 0.4s ease;
     overflow-y: auto;
@@ -447,11 +448,17 @@ body.sidebar-open .sidebar-overlay {
     text-transform: uppercase;
     text-decoration: none;
     width: 100%;
-    padding: 15px 10px;
+    padding: 15px 36px;
     border-bottom: 1px solid var(--secondary-main);
 }
+
+.sidebar .main-nav a.nav-cta{
+    background-color: var(--primary-main);
+    color: var(--light-text-color);
+}
+
 .sidebar .main-nav a::after {
-    display: none; /* Remove underline effect in sidebar */
+    display: none; 
 }
 .sidebar .dropdown-menu {
     position: static; /* Remove absolute positioning */
@@ -464,13 +471,18 @@ body.sidebar-open .sidebar-overlay {
     transform: none;
     display: none; /* Hide by default, toggle with JS */
 }
-.sidebar li.open > .dropdown-menu {
+
+.sidebar .open > .dropdown-menu {
     display: block;
 }
 
 /* --- Responsive Media Query --- */
 @media (max-width: 992px) {
-    .desktop-nav {
+    /* THIS IS THE FIX from our other conversation:
+      We only hide the .desktop-nav that's in the .main-header,
+      not the one in the sidebar.
+    */
+    .main-header .desktop-nav {
         display: none;
     }
     .mobile-nav-toggle {
@@ -534,6 +546,17 @@ body.sidebar-open .sidebar-overlay {
 .btn-primary:hover { background-color: #dbc872; color: var(--text-color); transform: scale(1.05); }
 .btn-secondary { background-color: transparent; border: 2px solid var(--primary-main); color: var(--primary-main); }
 .btn-secondary:hover { background-color: var(--primary-selected); color: white; transform: scale(1.05); }
-
+a.btn-primary, a.btn-secondary, a.category-btn {text-decoration: none;}
 /* --- Footer --- */
 .main-footer { background-color: #333; color: #eee; text-align: center; padding: 20px 0; }
+
+/* --- About Page --- */
+.about-container {  background-color: var(--light-text-color);}
+
+.about-contents { display: flex; align-items: center;}
+
+.about-content { text-align: center; text-align: justify; padding: 0 2rem; font-size: 14px; font-family: var(--font-secondary); margin: 0; }
+
+.about-container:nth-child(2) { background-color: var(--secondary-main); }
+
+.about-container:nth-child(3) { background-color: var(--primary-selected); background-image: url('https://www.magihae.com/themes/magihae/frontend/images/bg_gradien.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--primary-main); text-align: center; padding-top: 80px; padding-bottom: 80px; }
